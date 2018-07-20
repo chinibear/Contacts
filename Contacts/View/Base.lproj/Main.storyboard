@@ -44,7 +44,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellNameLabel" destination="cNp-nu-eY3" id="rlD-5f-COI"/>
+                                            <outlet property="cellNameLabel" destination="cNp-nu-eY3" id="3LR-jQ-Gfh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

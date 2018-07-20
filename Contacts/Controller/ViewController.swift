@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactCell
         
         cell.setContactName(name: contact.name)
-        
+    
         return cell
     }
     
@@ -82,6 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             editVC.contact = contact
             editVC.indexPath = indexPath
+            editVC.delegate = self
             
             self.present(editVC, animated: true, completion: nil)
         }
@@ -91,11 +92,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Edit Contact
     func editContact(contact: Contact, indexPath: IndexPath) {
-        contacts[indexPath.row].name = contact.name
-        contacts[indexPath.row].contactNo = contact.contactNo
-        contacts[indexPath.row].isFave = contact.isFave
-        
-        self.tableView.reloadRows(at: [indexPath], with: .automatic)
         self.tableView.reloadData()
     }
     
