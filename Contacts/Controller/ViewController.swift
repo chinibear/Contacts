@@ -59,7 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let readVC = storyboard?.instantiateViewController(withIdentifier: "ReadViewController") as! ReadViewController
         
         readVC.contact = contact
-        present(readVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(readVC, animated: true)
     }
     
     // Add Contact
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             editVC.indexPath = indexPath
             editVC.delegate = self
             
-            self.present(editVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(editVC, animated: true)
         }
         
         return [deleteAction, editAction]

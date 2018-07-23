@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="4OA-pF-aQw" customClass="ContactCell" customModule="Contacts" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="4OA-pF-aQw" customClass="ContactCell" customModule="Contacts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4OA-pF-aQw" id="4ZD-sz-c0o">
@@ -66,69 +66,54 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Contact"/>
                                 <connections>
-                                    <segue destination="WfP-Hv-Liz" kind="presentation" identifier="goToAddContact" id="gdz-Sa-nKV"/>
+                                    <segue destination="WfP-Hv-Liz" kind="show" identifier="goToAddContact" id="gdz-Sa-nKV"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="gdd-qA-h6i" id="3gP-af-lyt"/>
-                        <segue destination="hja-8T-Vq8" kind="presentation" identifier="goToViewContact" id="y9l-uQ-giF"/>
-                        <segue destination="yf6-8Y-Cbx" kind="presentation" identifier="goToEditContact" id="BBm-Nx-Uq9"/>
+                        <segue destination="hja-8T-Vq8" kind="show" identifier="goToViewContact" id="y9l-uQ-giF"/>
+                        <segue destination="yf6-8Y-Cbx" kind="show" identifier="goToEditContact" id="BBm-Nx-Uq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="660" y="777.66116941529242"/>
         </scene>
-        <!--Edit View Controller-->
+        <!--Edit Contact-->
         <scene sceneID="tdp-DB-OkC">
             <objects>
-                <viewController storyboardIdentifier="EditViewController" id="yf6-8Y-Cbx" customClass="EditViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditViewController" title="Edit Contact" id="yf6-8Y-Cbx" customClass="EditViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aIl-lN-MmV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUx-xv-iam" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRC-Vw-zz0" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="218" width="375" height="449"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYk-2T-Hse">
-                                        <rect key="frame" x="0.0" y="32" width="375" height="44"/>
-                                        <items>
-                                            <navigationItem title="Edit Contact" id="ITb-R6-fyK">
-                                                <barButtonItem key="leftBarButtonItem" title="Back" id="4xV-f9-pE7">
-                                                    <connections>
-                                                        <action selector="backButtonPressed:" destination="yf6-8Y-Cbx" id="zUh-3g-skd"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="PBy-LA-ghj">
-                                                    <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9eh-0X-OUS">
-                                                        <rect key="frame" x="315" y="0.0" width="44" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <state key="normal" title="☆">
-                                                            <color key="titleColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                                        </state>
-                                                        <state key="selected" title="★"/>
-                                                        <connections>
-                                                            <action selector="isFaveButtonPressed:" destination="WfP-Hv-Liz" eventType="touchUpInside" id="fVg-Ef-dcA"/>
-                                                            <action selector="isFaveButtonPressed:" destination="yf6-8Y-Cbx" eventType="touchUpInside" id="koL-fL-fmz"/>
-                                                        </connections>
-                                                    </button>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVn-lU-ifp">
+                                        <rect key="frame" x="34" y="0.0" width="307" height="42"/>
+                                        <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="GzU-ZI-vFD"/>
+                                        </constraints>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonPressed:" destination="yf6-8Y-Cbx" eventType="touchUpInside" id="2TU-CV-iDY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="CYk-2T-Hse" secondAttribute="bottom" id="0qb-uK-nNk"/>
-                                    <constraint firstAttribute="trailing" secondItem="CYk-2T-Hse" secondAttribute="trailing" id="5E8-kh-eah"/>
-                                    <constraint firstItem="CYk-2T-Hse" firstAttribute="leading" secondItem="aUx-xv-iam" secondAttribute="leading" id="nYQ-lm-olb"/>
+                                    <constraint firstItem="WVn-lU-ifp" firstAttribute="top" secondItem="eRC-Vw-zz0" secondAttribute="top" id="1RF-CY-wpP"/>
+                                    <constraint firstAttribute="trailing" secondItem="WVn-lU-ifp" secondAttribute="trailing" constant="34" id="SZa-z0-WKt"/>
+                                    <constraint firstItem="WVn-lU-ifp" firstAttribute="leading" secondItem="eRC-Vw-zz0" secondAttribute="leading" constant="34" id="tM8-5p-0ej"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghL-lT-EB5" userLabel="Mid View">
-                                <rect key="frame" x="0.0" y="68" width="375" height="142"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="146"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjt-sM-j3P">
                                         <rect key="frame" x="38" y="37" width="45" height="21"/>
@@ -168,107 +153,40 @@
                                     <constraint firstItem="uOp-1C-Nyo" firstAttribute="leading" secondItem="ghL-lT-EB5" secondAttribute="leading" constant="38" id="vc3-8G-dMq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRC-Vw-zz0" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="218" width="375" height="449"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVn-lU-ifp">
-                                        <rect key="frame" x="34" y="26" width="307" height="42"/>
-                                        <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="GzU-ZI-vFD"/>
-                                        </constraints>
-                                        <state key="normal" title="Save">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveButtonPressed:" destination="yf6-8Y-Cbx" eventType="touchUpInside" id="2TU-CV-iDY"/>
-                                            <action selector="saveButtonPressed:" destination="WfP-Hv-Liz" eventType="touchUpInside" id="VMm-rR-me1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="WVn-lU-ifp" firstAttribute="top" secondItem="eRC-Vw-zz0" secondAttribute="top" constant="26" id="1RF-CY-wpP"/>
-                                    <constraint firstAttribute="trailing" secondItem="WVn-lU-ifp" secondAttribute="trailing" constant="34" id="SZa-z0-WKt"/>
-                                    <constraint firstItem="WVn-lU-ifp" firstAttribute="leading" secondItem="eRC-Vw-zz0" secondAttribute="leading" constant="34" id="tM8-5p-0ej"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eRC-Vw-zz0" firstAttribute="top" secondItem="ghL-lT-EB5" secondAttribute="bottom" constant="8" id="35H-jq-UT5"/>
-                            <constraint firstItem="aUx-xv-iam" firstAttribute="leading" secondItem="ghL-lT-EB5" secondAttribute="leading" id="4Lt-Qg-lDh"/>
                             <constraint firstItem="eRC-Vw-zz0" firstAttribute="bottom" secondItem="GYp-5T-TS6" secondAttribute="bottom" id="I6g-gn-SK4"/>
+                            <constraint firstItem="eRC-Vw-zz0" firstAttribute="leading" secondItem="aIl-lN-MmV" secondAttribute="leading" id="Jt3-Am-KXb"/>
                             <constraint firstItem="eRC-Vw-zz0" firstAttribute="top" secondItem="ghL-lT-EB5" secondAttribute="bottom" constant="8" id="QoM-G2-kmK"/>
                             <constraint firstItem="eRC-Vw-zz0" firstAttribute="top" secondItem="ghL-lT-EB5" secondAttribute="bottom" constant="8" id="RuM-uT-d0B"/>
-                            <constraint firstItem="aUx-xv-iam" firstAttribute="top" secondItem="aIl-lN-MmV" secondAttribute="top" id="UGW-A8-lhi"/>
                             <constraint firstItem="eRC-Vw-zz0" firstAttribute="top" secondItem="aIl-lN-MmV" secondAttribute="top" constant="218" id="Wqr-Ay-e6t"/>
                             <constraint firstItem="ghL-lT-EB5" firstAttribute="leading" secondItem="eRC-Vw-zz0" secondAttribute="leading" id="c5G-Ys-m9d"/>
-                            <constraint firstItem="ghL-lT-EB5" firstAttribute="top" secondItem="aUx-xv-iam" secondAttribute="bottom" constant="-8" id="dnl-2U-Utp"/>
-                            <constraint firstAttribute="trailing" secondItem="aUx-xv-iam" secondAttribute="trailing" id="ela-Pb-Oid"/>
-                            <constraint firstItem="ghL-lT-EB5" firstAttribute="top" secondItem="GYp-5T-TS6" secondAttribute="top" constant="48" id="k5g-Qx-5Cl"/>
+                            <constraint firstItem="ghL-lT-EB5" firstAttribute="top" secondItem="GYp-5T-TS6" secondAttribute="top" id="k5g-Qx-5Cl"/>
                             <constraint firstItem="ghL-lT-EB5" firstAttribute="trailing" secondItem="eRC-Vw-zz0" secondAttribute="trailing" id="lHa-Rr-iQM"/>
-                            <constraint firstItem="aUx-xv-iam" firstAttribute="leading" secondItem="aIl-lN-MmV" secondAttribute="leading" id="mIM-O0-KVn"/>
-                            <constraint firstItem="aUx-xv-iam" firstAttribute="trailing" secondItem="ghL-lT-EB5" secondAttribute="trailing" id="nuA-XK-JTQ"/>
-                            <constraint firstItem="ghL-lT-EB5" firstAttribute="top" secondItem="aUx-xv-iam" secondAttribute="bottom" constant="-8" id="vPM-7q-b2P"/>
+                            <constraint firstAttribute="trailing" secondItem="eRC-Vw-zz0" secondAttribute="trailing" id="ys8-k6-AEZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GYp-5T-TS6"/>
                     </view>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="contactNoTextField" destination="hsL-Cr-5HX" id="vKu-oe-hXa"/>
-                        <outlet property="isFaveButton" destination="9eh-0X-OUS" id="rhw-EP-nev"/>
                         <outlet property="nameTextField" destination="VAE-Vl-lSZ" id="Nxe-8E-3Yz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNu-by-Guo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="1199"/>
+            <point key="canvasLocation" x="1597.5999999999999" y="1198.6506746626687"/>
         </scene>
-        <!--Read View Controller-->
+        <!--View Contact-->
         <scene sceneID="4kF-nP-Ikp">
             <objects>
-                <viewController storyboardIdentifier="ReadViewController" id="hja-8T-Vq8" customClass="ReadViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReadViewController" title="View Contact" id="hja-8T-Vq8" customClass="ReadViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLY-o9-dkb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAV-xx-k1C" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wq-MM-bbu">
-                                        <rect key="frame" x="0.0" y="24" width="375" height="44"/>
-                                        <items>
-                                            <navigationItem title="View Contact" id="lcp-cl-2MV">
-                                                <barButtonItem key="leftBarButtonItem" title="Back" id="Nfw-TH-sKa">
-                                                    <connections>
-                                                        <action selector="backButtonPressed:" destination="hja-8T-Vq8" id="b22-DK-PgD"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="J4x-ot-iMs">
-                                                    <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fxd-bt-0F5">
-                                                        <rect key="frame" x="315" y="0.0" width="44" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <state key="normal" title="☆">
-                                                            <color key="titleColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="6wq-MM-bbu" firstAttribute="leading" secondItem="lAV-xx-k1C" secondAttribute="leading" id="RFj-QQ-7kH"/>
-                                    <constraint firstAttribute="bottom" secondItem="6wq-MM-bbu" secondAttribute="bottom" id="nok-HW-fNV"/>
-                                    <constraint firstAttribute="trailing" secondItem="6wq-MM-bbu" secondAttribute="trailing" id="za8-3J-F9x"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMt-CX-8ZZ" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="68" width="375" height="599"/>
                                 <subviews>
@@ -319,21 +237,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lAV-xx-k1C" firstAttribute="leading" secondItem="0c0-ic-E5Q" secondAttribute="leading" id="1GU-hT-gng"/>
                             <constraint firstItem="eMt-CX-8ZZ" firstAttribute="bottom" secondItem="0c0-ic-E5Q" secondAttribute="bottom" id="Kq7-Do-dfv"/>
-                            <constraint firstItem="eMt-CX-8ZZ" firstAttribute="top" secondItem="lAV-xx-k1C" secondAttribute="bottom" id="PPh-cC-YGJ"/>
                             <constraint firstItem="eMt-CX-8ZZ" firstAttribute="top" secondItem="uLY-o9-dkb" secondAttribute="top" constant="68" id="RWw-k4-Q5b"/>
-                            <constraint firstItem="eMt-CX-8ZZ" firstAttribute="top" secondItem="lAV-xx-k1C" secondAttribute="bottom" id="XJg-0i-Ng4"/>
-                            <constraint firstItem="lAV-xx-k1C" firstAttribute="trailing" secondItem="0c0-ic-E5Q" secondAttribute="trailing" id="dxr-uR-l4z"/>
                             <constraint firstItem="eMt-CX-8ZZ" firstAttribute="trailing" secondItem="0c0-ic-E5Q" secondAttribute="trailing" id="h4g-Ot-bvP"/>
-                            <constraint firstItem="lAV-xx-k1C" firstAttribute="top" secondItem="uLY-o9-dkb" secondAttribute="top" id="nil-dR-2ig"/>
                             <constraint firstItem="eMt-CX-8ZZ" firstAttribute="leading" secondItem="0c0-ic-E5Q" secondAttribute="leading" id="syL-G3-Ls1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0c0-ic-E5Q"/>
                     </view>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="contactNoLabel" destination="eHD-D4-Jgx" id="57f-PX-uFe"/>
-                        <outlet property="isFaveButton" destination="Fxd-bt-0F5" id="HEG-rk-6uE"/>
                         <outlet property="nameLabel" destination="ufT-NH-FQn" id="lAh-6F-i7V"/>
                     </connections>
                 </viewController>
@@ -341,51 +254,14 @@
             </objects>
             <point key="canvasLocation" x="2585" y="806"/>
         </scene>
-        <!--Add View Controller-->
+        <!--Add Contact-->
         <scene sceneID="lmh-jn-5jk">
             <objects>
-                <viewController id="WfP-Hv-Liz" customClass="AddViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Contact" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="WfP-Hv-Liz" customClass="AddViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bie-Qi-F2P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioo-Cb-rmx" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzp-pg-WDp">
-                                        <rect key="frame" x="0.0" y="32" width="375" height="44"/>
-                                        <items>
-                                            <navigationItem title="Add Contact" id="cnY-Ym-iF1">
-                                                <barButtonItem key="leftBarButtonItem" title="Back" id="OaZ-qz-MQP">
-                                                    <connections>
-                                                        <action selector="backButtonPressed:" destination="WfP-Hv-Liz" id="9iM-E9-x4Q"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="z6L-cb-iUz">
-                                                    <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gLi-g3-JXp">
-                                                        <rect key="frame" x="315" y="0.0" width="44" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <state key="normal" title="☆">
-                                                            <color key="titleColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                                        </state>
-                                                        <state key="selected" title="★"/>
-                                                        <connections>
-                                                            <action selector="isFaveButtonPressed:" destination="WfP-Hv-Liz" eventType="touchUpInside" id="x1m-g3-d3I"/>
-                                                        </connections>
-                                                    </button>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tzp-pg-WDp" secondAttribute="trailing" id="27G-Mf-3VX"/>
-                                    <constraint firstAttribute="bottom" secondItem="tzp-pg-WDp" secondAttribute="bottom" id="T5n-kZ-goz"/>
-                                    <constraint firstItem="tzp-pg-WDp" firstAttribute="leading" secondItem="ioo-Cb-rmx" secondAttribute="leading" id="tAU-LG-kRZ"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rn-nJ-sEc" userLabel="Mid View">
                                 <rect key="frame" x="0.0" y="68" width="375" height="142"/>
                                 <subviews>
@@ -454,7 +330,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SjB-ER-1zU" firstAttribute="leading" secondItem="0hA-0Z-cdC" secondAttribute="leading" id="3uv-Hq-Lja"/>
-                            <constraint firstItem="7rn-nJ-sEc" firstAttribute="top" secondItem="ioo-Cb-rmx" secondAttribute="bottom" constant="-8" id="4gg-nC-dvy"/>
                             <constraint firstItem="SjB-ER-1zU" firstAttribute="top" secondItem="7rn-nJ-sEc" secondAttribute="bottom" constant="8" id="6yU-Kt-38w"/>
                             <constraint firstAttribute="bottom" secondItem="SjB-ER-1zU" secondAttribute="bottom" id="Lxg-DP-60n"/>
                             <constraint firstItem="7rn-nJ-sEc" firstAttribute="top" secondItem="Bie-Qi-F2P" secondAttribute="top" constant="68" id="Vwt-2k-VAY"/>
@@ -464,16 +339,12 @@
                             <constraint firstItem="SjB-ER-1zU" firstAttribute="top" secondItem="7rn-nJ-sEc" secondAttribute="bottom" constant="8" id="iPK-AQ-fXj"/>
                             <constraint firstItem="7rn-nJ-sEc" firstAttribute="leading" secondItem="0hA-0Z-cdC" secondAttribute="leading" id="l8j-Y2-Cu3"/>
                             <constraint firstItem="7rn-nJ-sEc" firstAttribute="trailing" secondItem="0hA-0Z-cdC" secondAttribute="trailing" id="qlm-Or-sme"/>
-                            <constraint firstItem="ioo-Cb-rmx" firstAttribute="trailing" secondItem="0hA-0Z-cdC" secondAttribute="trailing" id="qqg-rk-f3K"/>
-                            <constraint firstItem="ioo-Cb-rmx" firstAttribute="top" secondItem="Bie-Qi-F2P" secondAttribute="top" id="xo5-5M-wS4"/>
-                            <constraint firstItem="7rn-nJ-sEc" firstAttribute="top" secondItem="ioo-Cb-rmx" secondAttribute="bottom" constant="-8" id="yWg-bX-sgQ"/>
-                            <constraint firstItem="ioo-Cb-rmx" firstAttribute="leading" secondItem="0hA-0Z-cdC" secondAttribute="leading" id="zCz-Wz-YWg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0hA-0Z-cdC"/>
                     </view>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="contactNoTextField" destination="mG2-Ns-k00" id="Wmm-GY-vUj"/>
-                        <outlet property="isFaveButton" destination="gLi-g3-JXp" id="6N4-hJ-YDf"/>
                         <outlet property="nameTextField" destination="i8R-f6-UYB" id="kY0-Rz-L26"/>
                     </connections>
                 </viewController>

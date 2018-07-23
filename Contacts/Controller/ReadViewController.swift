@@ -12,7 +12,7 @@ class ReadViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var contactNoLabel: UILabel!
-    @IBOutlet weak var isFaveButton: UIButton!
+    var isFaveButton: UIBarButtonItem?
     
     var contact: Contact = Contact(name: "", contactNo: "", isFave: false)
     var isFaveText: String = ""
@@ -29,11 +29,18 @@ class ReadViewController: UIViewController {
 
         nameLabel.text = contact.name
         contactNoLabel.text = contact.contactNo
-        isFaveButton.setTitle(isFaveText, for: .normal)
+        isFaveButton = UIBarButtonItem(title: isFaveText, style: .done, target: self, action: #selector(isFaveButtonPressed))
+        self.navigationItem.rightBarButtonItem = isFaveButton
     }
     
-    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    @objc func isFaveButtonPressed() {
+        if contact.isFave == false {
+            contact.isFave = true
+            isFaveButton?.title = "★"
+        } else {
+            contact.isFave = false
+            isFaveButton?.title = "☆"
+        }
     }
     
 }

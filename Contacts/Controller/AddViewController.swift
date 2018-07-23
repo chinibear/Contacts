@@ -16,7 +16,7 @@ class AddViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contactNoTextField: UITextField!
-    @IBOutlet weak var isFaveButton: UIButton!
+    var isFaveButton: UIBarButtonItem?
     
     var name: String = ""
     var contactNo: String = ""
@@ -26,6 +26,20 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize right button on navbar
+        isFaveButton = UIBarButtonItem(title: "☆", style: .done, target: self, action: #selector(isFaveButtonPressed))
+        self.navigationItem.rightBarButtonItem = isFaveButton
+    }
+    
+    @objc func isFaveButtonPressed() {
+        if isFave == false {
+            isFave = true
+            isFaveButton?.title = "★"
+        } else {
+            isFave = false
+            isFaveButton?.title = "☆"
+        }
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
@@ -34,23 +48,7 @@ class AddViewController: UIViewController {
         
         delegate?.addContact(name: name, contactNo: contactNo, isFave: isFave)
         
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func isFaveButtonPressed(_ sender: UIButton) {
-        if isFaveButton.isSelected {
-            isFave = false
-            isFaveButton.isSelected = false
-            isFaveButton.setTitle("☆", for: .normal)
-        } else {
-            isFave = true
-            isFaveButton.isSelected = true
-            isFaveButton.setTitle("★", for: .normal)
-        }
-    }
-    
-    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
